@@ -24,20 +24,20 @@ all([move['dir'] == 'W', state[move['player']][2] is None, state[move['player']]
 
 def get_weapon(move, state):
     if get_axe(move, state):
-        state[move['player']][0] == (2,2)
-        state[move['player']][2] == 3
+        state[move['player']][0] = (2,2)
+        state[move['player']][2] = 3
         state['axe'] == [state[move['player']][0], True ]
     elif get_dagger(move, state):
-        state[move['player']][0] == (2,5)
-        state[move['player']][2] == 2
+        state[move['player']][0] = (2,5)
+        state[move['player']][2] = 2
         state['dagger'] == [state[move['player']][0], True ]
     elif get_magic(move, state):
-        state[move['player']][0] == (6,2)
-        state[move['player']][2] == 2
-        state[move['player']][3] == 2
+        state[move['player']][0] = (6,2)
+        state[move['player']][2] = 2
+        state[move['player']][3] = 2
         state['magic'] == [state[move['player']][0], True ]
     elif get_helmet(move, state):
-        state[move['player']][0] == (5,5)
-        state[move['player']][3] == 2
+        state[move['player']][0] = (5,5)
+        state[move['player']][3] = 2
         state['helmet'] == [state[move['player']][0], True ]
     return state

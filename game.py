@@ -19,7 +19,7 @@ in_state= {
 
 def update_state(moves, state):
     for move in moves:
-        newstate = get_weapon(move, fight(move, update_position(move, state)))
+        newstate = fight(move, get_weapon(move, update_position(move, state)))
     return newstate
 
 print (update_state(moves_1, in_state))
