@@ -1,5 +1,3 @@
-from collections import namedtuple
-
 def update_position(move, state):
     row = state[move['player']][0][0]
     column = state[move['player']][0][1]
@@ -9,13 +7,14 @@ def update_position(move, state):
         newcolumn = column
     elif move['dir'] == 'E':
         newrow= row
-        newcolumn = column -1
+        newcolumn = column +1
     elif move['dir'] == 'S':
+        print ('I got here')
         newrow= row +1
         newcolumn = column
     else:
         newrow= row
-        newcolumn = column +1
+        newcolumn = column -1
 
     #checking if move is in range
     if  newrow not in range(0,8) or newcolumn not in range(0,8):
@@ -28,6 +27,5 @@ def update_position(move, state):
             state[state[move['player']][2]][0] == state[move['player']][0]
 
         #update player position
-        state[move['player']][0] = (newrow, newcolumn)
-
+    state[move['player']][0] = (newrow, newcolumn)
     return state

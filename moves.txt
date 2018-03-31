@@ -1,5 +1,0 @@
-[{'player': 'red', 'dir': 'S'},
-{'player': 'red', 'dir': 'S'},
-{'player':'blue', 'dir': 'E'},
-{'player': 'green', 'dir': 'N'},
-{'player': 'yellow', 'dir':'N'}]

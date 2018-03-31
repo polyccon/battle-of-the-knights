@@ -1,3 +1,6 @@
 tests/__pycache__
 __pycache__
 tests/.cache
+.cache
+pytest-env
+src/__pycache__
