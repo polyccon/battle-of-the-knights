@@ -14,10 +14,10 @@ def update_state(moves):
         'blue': [(7,0),'LIVE',None,1,1],
         'green': [(7,7),'LIVE',None,1,1],
         'yellow': [(0,7),'LIVE',None,1,1],
-        'magic_staff': [(2,2),False],
-        'helmet': [(5,2),False],
-        'dagger': [(5,5),False],
-        'axe': [(2,5),False],
+        'magic_staff': [(5,2),False],
+        'helmet': [(5,5),False],
+        'dagger': [(2,5),False],
+        'axe': [(2,2),False],
         }
 
     for move in moves:
