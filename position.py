@@ -1,34 +1,34 @@
+from collections import namedtuple
+
 def update_position(move, state):
-    if move['dir'] == 'N' and state[move['player']][0][0] == 0:
-        state[move['player']][1] = 'DROWNED'
-        state[move['player']][3] = 0
-        state[move['player']][4] = 0
-    elif move == 'S' and state[move['player']][0][0] == 7:
-        state[move['player']][1] = 'DROWNED'
-        state[move['player']][3] = 0
-        state[move['player']][4] = 0
-    elif move == 'E' and state[move['player']][0][1] == 0:
-        state[move['player']][1] = 'DROWNED'
-        state[move['player']][3] = 0
-        state[move['player']][4] = 0
-    elif move == 'W' and state[move['player']][0][1] == 7:
-        state[move['player']][1] = 'DROWNED'
-        state[move['player']][3] = 0
-        state[move['player']][4] = 0
-    elif move['dir'] == 'N':
-        print (state[move['player']][0])
-        state[move['player']][0] = (state[move['player']][0][0] -1, state[move['player']][0][1])
-        print (state[move['player']][0])
+    position = state[move['player']][0]
+    row = state[move['player']][0][0]
+    column = state[move['player']][0][1]
+
+    if move['dir'] == 'N':
+        newrow= row -1
+        newcolumn = column
     elif move['dir'] == 'E':
-        print (state[move['player']][0])
-        state[move['player']][0] = (state[move['player']][0][0], state[move['player']][0][1] + 1)
-        print (state[move['player']][0])
+        newrow= row
+        newcolumn = column -1
     elif move['dir'] == 'S':
-        print (state[move['player']][0])
-        state[move['player']][0] = (state[move['player']][0][0] +1, state[move['player']][0][1])
-        print (state[move['player']][0])
-    elif move['dir'] == 'W':
-        print (state[move['player']][0])
-        state[move['player']][0][1] = (state[move['player']][0][0], state[move['player']][0][1]- 1)
-        print (state[move['player']][0])
+        newrow= row +1
+        newcolumn = column
+    else:
+        newrow= row
+        newcolumn = column +1
+
+    #checking if move is in range
+    if  newrow not in range(0,8) or newcolumn not in range(0,8):
+        state[move['player']][1] = 'DROWNED'
+        state[move['player']][3] = 0
+        state[move['player']][4] = 0
+
+        #if player has items drops them before drowning
+        if state[move['player']][2] is not None:
+            state[state[move['player']][2]][0] == state[move['player']][0]
+
+        #update player position
+        state[move['player']][0] = (newrow, newcolumn)
+
     return state
