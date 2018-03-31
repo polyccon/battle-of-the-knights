@@ -1,3 +1,5 @@
+import ast
+
 from weapons import get_weapon
 from position import update_position
 from fight import fight
@@ -17,9 +19,14 @@ in_state= {
     'axe': [(2,5),False],
 }
 
-def update_state(moves, state):
+def update_state(filename, state):
+
+    moves = open(filename, 'r').read()
+    moves = ast.literal_eval(moves)
+
     for move in moves:
         newstate = fight(move, get_weapon(move, update_position(move, state)))
+
     return newstate
 
-print (update_state(moves_1, in_state))
+print (update_state('moves.txt', in_state))

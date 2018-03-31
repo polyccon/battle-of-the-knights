@@ -1,13 +1,9 @@
 from random import randint
 
-
-
 def findsame(object, val):
   return {k:v for k, v in object.items() if v == val}
 
-
 def is_weapon(move,state):
-
     weapons = {'magic_staff': state['magic_staff'],
                 'helmet': state['helmet'],
                 'dagger': state['dagger'],
@@ -23,6 +19,7 @@ def is_weapon(move,state):
     else:
         weapon = None
     return weapon
+
 
 def get_weapon(move, state):
     if is_weapon(move,state) is not None and state[move['player']][2] is None:

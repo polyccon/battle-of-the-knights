@@ -1,7 +1,6 @@
 from collections import namedtuple
 
 def update_position(move, state):
-    position = state[move['player']][0]
     row = state[move['player']][0][0]
     column = state[move['player']][0][1]
 
