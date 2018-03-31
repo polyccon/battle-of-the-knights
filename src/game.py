@@ -1,8 +1,8 @@
 import ast
 
-from weapons import get_weapon
-from position import update_position
-from fight import fight
+from .weapons import get_weapon
+from .position import update_position
+from .fight import fight
 
 def open_moves(filename):
     moves = open(moves_file, 'r').read()
