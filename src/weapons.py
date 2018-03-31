@@ -1,5 +1,7 @@
 from random import randint
 
+from .position import update_position
+
 def findsame(object, val):
   return {k:v for k, v in object.items() if v[0] == val}
 
@@ -23,7 +25,6 @@ def is_weapon(move, state):
 
 
 def get_weapon(move, state):
-    print ('is_weapon', is_weapon(move, state))
     if is_weapon(move,state) is not None and state[move['player']][2] is None:
         weapon = is_weapon(move, state)
         state[weapon][0] = state[move['player']][0]
@@ -43,3 +44,4 @@ def get_weapon(move, state):
             state[move['player']][2] = 'helmet'
             state[move['player']][4] = 2
     return state
+    
