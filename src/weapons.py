@@ -1,5 +1,6 @@
 from random import randint
 
+from .constants import *
 from .position import update_position
 
 def findsame(object, val):
@@ -25,34 +26,34 @@ def is_weapon(move, state):
 
 def update_weapon(player, weapon):
     if weapon == 'axe':
-        player[2] = 'axe'
+        player[ WEAPON ] = 'axe'
     elif weapon == 'dagger':
-        player[2] = 'dagger'
+        player[ WEAPON ] = 'dagger'
     elif weapon == 'magic_staff':
-        player[2] = 'magic_staff'
+        player[ WEAPON ] = 'magic_staff'
     elif weapon == 'helmet':
-        player[2] = 'helmet'
+        player[ WEAPON ] = 'helmet'
     return player
 
 def update_weapon_points(player, weapon):
     if weapon == 'axe':
-        player[3] = 3
+        player[ ATTACK ] = 3
     elif weapon == 'dagger':
-        player[3] = 2
+        player[ ATTACK ] = 2
     elif weapon == 'magic_staff':
-        player[3] = 2
-        player[4] = 2
+        player[ ATTACK ] = 2
+        player[ DEFENCE ] = 2
     elif weapon == 'helmet':
-        player[4] = 2
+        player[ DEFENCE ] = 2
     return player
 
 def get_weapon(move, state):
     player = state[move['player']]
-    if is_weapon(move,state) is not None and player[2] is None:
+    if is_weapon(move,state) is not None and player[ WEAPON ] is None:
         weapon = is_weapon(move, state)
-        state[weapon][0] = state[move['player']][0]
-        state[weapon][1] = True
-        player[2] = weapon
+        state[weapon][ LOCATION ] = state[move['player']][ LOCATION ]
+        state[weapon][ OWNED ] = True
+        player[ WEAPON ] = weapon
         update_weapon(player, weapon)
         update_weapon_points(player, weapon)
     return state
