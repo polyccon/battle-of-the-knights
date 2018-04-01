@@ -4,6 +4,9 @@ To run the code:
 
 * Clone the repo and cd into the top level directory
 * Add a file at the top level with a list of moves, see for example: 'moves.txt'
+* Make sure your 'moves.txt' file contents are in the same format as the
+  example, as you will get an error (Error handling is currently work in
+  progress)
 * Run the following command in the terminal :
 
   `python3 runner.py 'moves.txt'`

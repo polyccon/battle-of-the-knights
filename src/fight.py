@@ -13,15 +13,16 @@ def fight(move, state):
             attacker[ ATTACK ] += defender[ ATTACK ] + 0.5
             defender[ DEFENCE ] += attacker[ DEFENCE ]
 
+            #check which one has more points
             if attacker[ ATTACK ] > defender[ DEFENCE ]:
-                state[defender[2]][ OWNED] = False
+                state[defender[ WEAPON ]][ OWNED] = False
                 defender[ STATUS ] = 'DEAD'
                 defender[ ATTACK ] = 0
                 defender[ DEFENCE ] = 0
                 defender[ WEAPON ] = None
 
             elif attacker[ ATTACK ] < defender[ DEFENCE ]:
-                state[attacker[2]][ OWNED ] = False
+                state[attacker[ WEAPON ]][ OWNED ] = False
                 attacker[ STATUS ] = 'DEAD'
                 attacker[ ATTACK ] = 0
                 attacker[ DEFENCE ] = 0
