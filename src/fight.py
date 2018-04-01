@@ -1,3 +1,5 @@
+from .constants import *
+
 def fight(move, state):
     attacker = state[move['player']]
     #check if any of the other 3 knights is on the same tile
@@ -7,26 +9,26 @@ def fight(move, state):
 
         defender = state[player]
         #if yes there is a fight:
-        if attacker[0] == defender[0]:
-            attacker[3] += defender[3] + 0.5
-            defender[4] += attacker[4]
+        if attacker[ LOCATION ] == defender[ LOCATION ]:
+            attacker[ ATTACK ] += defender[ ATTACK ] + 0.5
+            defender[ DEFENCE ] += attacker[ DEFENCE ]
 
-            if attacker[3] > defender[4]:
-                state[defender[2]][1] = False
-                defender[1] = 'DEAD'
-                defender[3] = 0
-                defender[4] = 0
-                defender[2] = None
+            if attacker[ ATTACK ] > defender[ DEFENCE ]:
+                state[defender[2]][ OWNED] = False
+                defender[ STATUS ] = 'DEAD'
+                defender[ ATTACK ] = 0
+                defender[ DEFENCE ] = 0
+                defender[ WEAPON ] = None
 
-            elif attacker[3] < defender[4]:
-                state[attacker[2]][1] = False
-                attacker[1] = 'DEAD'
-                attacker[3] = 0
-                attacker[4] = 0
-                attacker[2] = None
+            elif attacker[ ATTACK ] < defender[ DEFENCE ]:
+                state[attacker[2]][ OWNED ] = False
+                attacker[ STATUS ] = 'DEAD'
+                attacker[ ATTACK ] = 0
+                attacker[ DEFENCE ] = 0
+                attacker[ WEAPON ] = None
 
             #remove surprise points from final output of state
-            attacker[3] -= 0.5
-            attacker[3] = int(attacker[3])
+            attacker[ ATTACK ] -= 0.5
+            attacker[ ATTACK ] = int(attacker[3])
 
     return state
