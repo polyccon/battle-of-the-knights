@@ -17,14 +17,14 @@ from src.game import update_state
         {'player': 'yellow', 'dir': 'W'},
         {'player': 'red', 'dir': 'E'}],
 
-        {'red': [(2,4),'LIVE','dagger',5,1],
+        {'red': [(2,4),'LIVE','axe',5,1],
         'blue': [(7,0),'LIVE',None,1,1],
         'green': [(7,7),'LIVE',None,1,1],
         'yellow': [(2,4),'DEAD',None,0,0],
         'magic_staff': [(5,2),False],
         'helmet': [(5,5),False],
-        'dagger': [(2,4),True],
-        'axe': [(2,4),False] })
+        'dagger': [(2,4),False],
+        'axe': [(2,4),True] })
     ]
 )
 def test_is_equal(moves, expected):

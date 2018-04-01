@@ -29,5 +29,3 @@ def export_state(newstate):
     file = open(output_file, 'w')
     file.write(str(newstate))
     file.close()
-
-#print (update_state('moves.txt', 'result.txt'))

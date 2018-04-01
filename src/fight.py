@@ -13,10 +13,6 @@ def fight(move, state):
         if attacker[0] == defender[0]:
             attacker[3] += defender[3] + 0.5
             defender[4] += attacker[4]
-            weapon1 = attacker[2]
-            weapon2 = defender[2]
-            attacker[2] = weapon2
-            defender[2] = weapon1
 
             #check which one has more points
             if attacker[3] > defender[4]:
