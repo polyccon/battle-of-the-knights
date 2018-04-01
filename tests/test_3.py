@@ -27,6 +27,7 @@ from src.game import update_state
 )
 def test_is_equal(moves, expected):
     """Test if red player gets the axe as expected
+        and yellow player gets the dagger
     """
     actual = update_state(moves)
     assert actual == expected

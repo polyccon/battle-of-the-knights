@@ -44,4 +44,3 @@ def get_weapon(move, state):
             state[move['player']][2] = 'helmet'
             state[move['player']][4] = 2
     return state
-    
