@@ -6,11 +6,11 @@ To run the code:
 * Add a file at the top level with a list of moves, see for example: 'moves.txt'
 * Run the following command in the terminal :
 
-  `python3 'moves.txt'`
+  `python3 runner.py 'moves.txt'`
 
   Or
 
-  `python3 'moves.txt' 'yes'`
+  `python3 runner.py 'moves.txt' 'yes'`
 
 > _'yes' is optional, it will export the output to a new file_
 
