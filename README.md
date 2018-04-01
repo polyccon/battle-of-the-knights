@@ -6,25 +6,27 @@ To run the code:
 * Add a file at the top level with a list of moves, see for example: 'moves.txt'
 * Run the following command in the terminal :
 
-  > python3 'moves.txt'
+  `python3 'moves.txt'`
 
   Or
 
-  > python3 'moves.txt' 'yes'
+  `python3 'moves.txt' 'yes'`
 
-_'yes' is optional, it will export the output to a new file_
+> _'yes' is optional, it will export the output to a new file_
+
+---
 
 To run the tests:
 
 * You need to install pytest (if you don't have pip you might need to install
   that first):
 
-  > pip install pytest
+  `pip install pytest`
 
   Or from the same level directory as the requirements file:
 
-  > pip install -r requirements.txt
+  `pip install -r requirements.txt`
 
 * Run command the following command at the top level of the directory:
 
-  > pytest
+  `pytest`
