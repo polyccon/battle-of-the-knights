@@ -27,6 +27,6 @@ To run the tests:
 
   `pip install -r requirements.txt`
 
-* Run command the following command at the top level of the directory:
+* Run the following command at the top level of the directory:
 
   `pytest`
