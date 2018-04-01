@@ -1,4 +1,4 @@
-# Battle of the knights challenge
+# Battle of the knights
 
 To run the code:
 
@@ -12,7 +12,7 @@ To run the code:
 
   > python3 'moves.txt' 'yes'
 
-_* 'yes' is optional, it will export the output to a new file*_
+_'yes' is optional, it will export the output to a new file_
 
 To run the tests:
 
@@ -20,6 +20,10 @@ To run the tests:
   that first):
 
   > pip install pytest
+
+  Or from the same level directory as the requirements file:
+
+  > pip install -r requirements.txt
 
 * Run command the following command at the top level of the directory:
 
