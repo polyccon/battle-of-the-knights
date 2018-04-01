@@ -1,6 +1,8 @@
+from .constants import *
+
 def get_position(move, state):
-    row = state[move['player']][0][0]
-    column = state[move['player']][0][1]
+    row = state[move['player']][LOCATION][0]
+    column = state[move['player']][LOCATION][1]
 
     if move['dir'] == 'N':
         newrow= row -1
@@ -21,18 +23,18 @@ def update_position(move, state):
 
     #checking if move is in range
     if  new_position[0] not in range(0,8) or new_position[1] not in range(0,8):
-        state[move['player']][1] = 'DROWNED'
-        state[move['player']][3] = 0
-        state[move['player']][4] = 0
+        state[move['player']][STATUS] = 'DROWNED'
+        state[move['player']][ATTACK] = 0
+        state[move['player']][DEFENCE] = 0
 
         #if player has items drops them before drowning
         if state[move['player']][2] is not None:
-            state[state[move['player']][2]][0] == state[move['player']][0]
+            state[state[move['player']][2]][LOCATION] == state[move['player']][LOCATION]
 
         #update player position
-    state[move['player']][0] = new_position
+    state[move['player']][LOCATION] = new_position
 
     #update position of weapon if owned by a knight
     if state[move['player']][2] is not None:
-        state[state[move['player']][2]][0] = new_position
+        state[state[move['player']][2]][LOCATION] = new_position
     return state
