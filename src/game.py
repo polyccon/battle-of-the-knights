@@ -5,7 +5,7 @@ from .position import update_position
 from .fight import fight
 
 def open_moves(filename):
-    moves = open(moves_file, 'r').read()
+    moves = open(filename, 'r').read()
     return ast.literal_eval(moves)
 
 def update_state(moves):
@@ -25,7 +25,7 @@ def update_state(moves):
     return newstate
 
 def export_state(newstate):
-    output_file = 'Result: ' + moves_file
+    output_file = 'Results'
     file = open(output_file, 'w')
     file.write(str(newstate))
     file.close()
