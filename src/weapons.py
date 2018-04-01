@@ -23,24 +23,36 @@ def is_weapon(move, state):
         weapon = None
     return weapon
 
+def update_weapon(player, weapon):
+    if weapon == 'axe':
+        player[2] = 'axe'
+    elif weapon == 'dagger':
+        player[2] = 'dagger'
+    elif weapon == 'magic_staff':
+        player[2] = 'magic_staff'
+    elif weapon == 'helmet':
+        player[2] = 'helmet'
+    return player
+
+def update_weapon_points(player, weapon):
+    if weapon == 'axe':
+        player[3] = 3
+    elif weapon == 'dagger':
+        player[3] = 2
+    elif weapon == 'magic_staff':
+        player[3] = 2
+        player[4] = 2
+    elif weapon == 'helmet':
+        player[4] = 2
+    return player
 
 def get_weapon(move, state):
-    if is_weapon(move,state) is not None and state[move['player']][2] is None:
+    player = state[move['player']]
+    if is_weapon(move,state) is not None and player[2] is None:
         weapon = is_weapon(move, state)
         state[weapon][0] = state[move['player']][0]
         state[weapon][1] = True
-        state[move['player']][2] = weapon
-        if weapon == 'axe':
-            state[move['player']][2] = 'axe'
-            state[move['player']][3] = 3
-        elif weapon == 'dagger':
-            state[move['player']][2] = 'dagger'
-            state[move['player']][3] = 2
-        elif weapon == 'magic_staff':
-            state[move['player']][2] = 'magic_staff'
-            state[move['player']][3] = 2
-            state[move['player']][4] = 2
-        elif weapon == 'helmet':
-            state[move['player']][2] = 'helmet'
-            state[move['player']][4] = 2
+        player[2] = weapon
+        update_weapon(player, weapon)
+        update_weapon_points(player, weapon)
     return state
