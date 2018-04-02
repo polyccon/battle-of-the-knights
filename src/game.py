@@ -5,8 +5,12 @@ from .position import update_position
 from .fight import fight
 
 def open_moves(filename):
-    moves = open(filename, 'r').read()
-    return ast.literal_eval(moves)
+    try:
+        moves = open(filename, 'r').read()
+        return ast.literal_eval(moves)
+    except Exception as e:
+        print ('Error:', e)
+        print ('Sorry, something went wrong wwhile reading {} file'.format(filename))
 
 def update_state(moves):
     in_state= {
@@ -19,10 +23,12 @@ def update_state(moves):
         'dagger': [(2,5),False],
         'axe': [(2,2),False],
         }
-
-    for move in moves:
-        newstate = fight(move, get_weapon(move, update_position(move, in_state)))
-    return newstate
+    if moves:
+        for move in moves:
+            newstate = fight(move, get_weapon(move, update_position(move, in_state)))
+        return newstate
+    else:
+        return 'Sorry, there was something wrong with the moves object syntax'
 
 def export_state(newstate):
     output_file = 'Results'
