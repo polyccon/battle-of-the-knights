@@ -22,7 +22,7 @@ def update_position(move, state):
     new_position = get_position(move,state)
 
     #checking if move is in range
-    if  new_position[0] not in range(0,8) or new_position[1] not in range(0,8):
+    if  any([new_position[0], new_position[1]]) not in range(0,8):
         state[move['player']][ STATUS ] = 'DROWNED'
         state[move['player']][ ATTACK ] = 0
         state[move['player']][ DEFENCE ] = 0

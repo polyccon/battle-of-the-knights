@@ -23,8 +23,8 @@ from src.game import update_state
     ]
 )
 def test_is_equal(moves, expected):
-    """Test if comparison of moves with
-        expected is equal
+    """Test if yellow knight drowns as expected
+        when he moves out the board
     """
     actual = update_state(moves)
     assert actual == expected
