@@ -9,7 +9,7 @@ def fight(move, state):
 
         defender = state[player]
         #if yes there is a fight:
-        if attacker[ LOCATION ] == defender[ LOCATION ]:
+        if attacker[ LOCATION ] == defender[ LOCATION ] and defender[STATUS] =='LIVE':
             attacker[ ATTACK ] += defender[ ATTACK ] + 0.5
             defender[ DEFENCE ] += attacker[ DEFENCE ]
 
