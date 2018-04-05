@@ -25,7 +25,7 @@ def update_position(move, state):
     new_position = get_position(move,state)
 
     # is the move valid
-    if state[move['player']][ STATUS ] == 'LIVE':
+    if is_move(move,state):
         #checking if move is in range
         if  new_position[0] not in range(0,8) or new_position[1] not in range(0,8):
             state[move['player']][ STATUS ] = 'DROWNED'
