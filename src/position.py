@@ -18,23 +18,30 @@ def get_position(move, state):
         newcolumn = column -1
     return (newrow, newcolumn)
 
+def is_move(move, state):
+    return state[move['player']][ STATUS ] == 'LIVE'
+
 def update_position(move, state):
     new_position = get_position(move,state)
 
-    #checking if move is in range
-    if  new_position[0] not in range(0,8) or new_position[1] not in range(0,8):
-        state[move['player']][ STATUS ] = 'DROWNED'
-        state[move['player']][ ATTACK ] = 0
-        state[move['player']][ DEFENCE ] = 0
+    # is the move valid
+    if state[move['player']][ STATUS ] == 'LIVE':
+        #checking if move is in range
+        if  new_position[0] not in range(0,8) or new_position[1] not in range(0,8):
+            state[move['player']][ STATUS ] = 'DROWNED'
+            state[move['player']][ ATTACK ] = 0
+            state[move['player']][ DEFENCE ] = 0
 
-        #if player has items drops them before drowning
-        if state[move['player']][2] is not None:
-            state[state[move['player']][2]][ LOCATION ] == state[move['player']][ LOCATION ]
+            #if player has items drops them before drowning
+            if state[move['player']][2] is not None:
+                state[state[move['player']][2]][ LOCATION ] == state[move['player']][ LOCATION ]
 
-        #update player position
-    state[move['player']][ LOCATION ] = new_position
+            #update player position
+        state[move['player']][ LOCATION ] = new_position
 
-    #update position of weapon if owned by a knight
-    if state[move['player']][ WEAPON ] is not None:
-        state[state[move['player']][2]][ LOCATION ] = new_position
-    return state
+        #update position of weapon if owned by a knight
+        if state[move['player']][ WEAPON ] is not None:
+            state[state[move['player']][2]][ LOCATION ] = new_position
+        return state
+    else:
+        return 'Can not move dead or drowned player, please check moves'
